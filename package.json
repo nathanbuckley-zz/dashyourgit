@@ -1,0 +1,28 @@
+{
+  "name": "dasshYourGit",
+  "version": "0.0.1",
+  "description": "Live dashboard for Github personal page or Org",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nathanbuckley/dashyourgit.git"
+  },
+  "keywords": [
+    "Dashboard",
+    "Github"
+  ],
+  "author": "nathanbuckley",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nathanbuckley/dashyourgit/issues"
+  },
+  "homepage": "https://github.com/nathanbuckley/dashyourgit",
+  "dependencies": {
+    "backbone": "^1.2.0",
+    "materialize-css": "^0.96.1",
+    "socket.io": "^1.3.5"
+  }
+}
