@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/nathanbuckley/dashyourgit",
   "dependencies": {
+    "d3": "^3.5.5",
     "express": "^4.12.4",
     "materialize-css": "^0.96.1",
     "socket.io": "^1.3.5"
