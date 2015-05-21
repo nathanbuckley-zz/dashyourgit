@@ -11,7 +11,7 @@
 <body class="background blue-grey darken-3">
   <div class="container">
     <div class="logo">
-
+      <img src="../images/github.png" alt="GitHub Logo" height="200" width="200" class="center">
     </div>
     <div class="card-panel blue-grey darken-2" id="loginform">
       <div class="row">
@@ -22,9 +22,54 @@
           <li class="tab col s3"><a class="blue-grey-text text-lighten-5" href="#repoForm">Repo</a></li>
         </ul>
       </div>
-      <div id="personalForm" class="col s12">Personal Dashboard Form</div>
-      <div id="orgForm" class="col s12">Organisation Dashboard Form</div>
-      <div id="repoForm" class="col s12">Repository Dashboard Form</div>
+      <div id="personalForm" class="col s12">
+        <form class="col s12">
+      <div class="row">
+        <div class="input-field col s12">
+          <input placeholder="https://github.com/username" id="giturl" type="text" class="validate">
+          <label for="gitURL">Git Hub URL</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="apikey" type="text" class="validate">
+          <label for="apikey">API Key</label>
+        </div>
+      </div>
+    </form>
+      </div>
+      <div id="orgForm" class="col s12">
+        <form class="col s12">
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="orgUrl" type="text" class="validate">
+          <label for="orgUrl">Git Hub Organisation URL</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="apikey" type="text" class="validate">
+          <label for="apikey">API Key</label>
+        </div>
+      </div>
+    </form>
+    </div>
+      <div id="repoForm" class="col s12">
+        <form class="col s12">
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="repourl" type="text" class="validate">
+          <label for="repoURL">Git Hub Repo URL</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="apikey" type="text" class="validate">
+          <label for="apikey">API Key</label>
+        </div>
+      </div>
+    </form>
+    </div>
     </div>
     </div>
   </div>
