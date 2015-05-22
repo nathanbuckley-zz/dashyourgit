@@ -9,5 +9,10 @@ img.center {
 }
 
 .top{
-  margin-top: 60px
+  margin-top: 60px;
+}
+
+.submitbt{
+  margin-bottom: 0px;
+  float:right;
 }
