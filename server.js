@@ -25,9 +25,13 @@ app.post('/', function (req, res) {
   res.sendFile(path.join(__dirname + 'public/index.html'));
 });
 
-app.post('/perdetails', function (req, res) {
+app.post('/submit', function (req, res) {
   res.send(req.body);
-    console.log(req.body);
+  console.log(req.body);
+  fs.writeFile('config.json', req.body,function(err){
+    if(err) throw err;
+    console.log('config file saved');
+  });
 });
 
 
