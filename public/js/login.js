@@ -1,5 +1,5 @@
 
-// **Materialize initializers**  
+// **Materialize initializers**
 //-------------------------------------------------------
 $(document).ready(function(){
             $('ul.tabs').tabs();
@@ -9,3 +9,5 @@ $(document).ready(function(){
 
 
 //-------------------------------------------------------
+
+//login validation
