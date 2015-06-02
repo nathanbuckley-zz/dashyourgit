@@ -26,11 +26,12 @@ app.get('/', function (req, res) {
 });
 
 app.post('/submitform', function (req, res) {
-  res.send(req.body);
-  console.log(req.body);
-  fs.writeFile('config.json', JSON.stringify(req.body),function(err){
+  var formData = req.body;
+  console.log(formData);
+  fs.writeFile('config.json', JSON.stringify(formData),function(err){
     if(err) throw err;
     console.log('config file saved');
+    res.send(formData);
   });
 });
 
