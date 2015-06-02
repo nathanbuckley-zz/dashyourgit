@@ -8,7 +8,7 @@ io = require('socket.io'),
 fs = require('fs'),
 path = require('path'),
 bodyParser = require('body-parser'),
-port = process.env.PORT || 1337;
+port = 1337;
 
 
 
@@ -21,14 +21,14 @@ app.use(express.static(__dirname + '/public'));
 
 // FORM ROUTES ---------------------------------------------
 
-app.post('/', function (req, res) {
-  res.sendFile(path.join(__dirname + 'public/index.html'));
+app.get('/', function (req, res) {
+  res.sendFile(path.join(__dirname + '/public/html/index.html'));
 });
 
-app.post('/submit', function (req, res) {
+app.post('/submitform', function (req, res) {
   res.send(req.body);
   console.log(req.body);
-  fs.writeFile('config.json', req.body,function(err){
+  fs.writeFile('config.json', JSON.stringify(req.body),function(err){
     if(err) throw err;
     console.log('config file saved');
   });
@@ -38,6 +38,6 @@ app.post('/submit', function (req, res) {
 // START THE SERVER ---------------------------------------------
 
 var server = app.listen(port, function(){
-  var host = server.address().address;
-  console.log('listening on: ' + host + ':' + port);
+  var host = server.address();
+  console.log('listening on: ' + JSON.stringify(host));
 });
