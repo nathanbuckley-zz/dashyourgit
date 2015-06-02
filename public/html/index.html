@@ -26,13 +26,13 @@
         <form id= "personalForm" class="col s12" action="http://127.0.0.1:1337/submitform" method="POST" onsubmit="return validation()">
       <div class="row">
         <div class="input-field col s12 top">
-          <input id="giturl" type="text">
+          <input id="giturl" name="giturl" type="text">
           <label for="giturl">Enter Github username <i class="mdi-action-info-outline info tooltipped" data-position="right" data-delay="50" data-tooltip="Enter Full user name eg: nathanbuckley"></i></label>
         </div>
       </div>
       <div class="row">
         <div class="input-field col s12">
-          <input id="apikey" type="text">
+          <input id="apikey" name="OauthToken" type="text">
           <label for="apikey">OAuth Token <i class="mdi-action-info-outline info tooltipped" data-position="right" data-delay="50" data-tooltip="Learn how to generate token at: https://developer.github.com/v3/oauth/"></i></label>
         </div>
       </div>
