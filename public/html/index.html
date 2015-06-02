@@ -22,22 +22,22 @@
           <li class="tab col s3"><a class="blue-grey-text text-lighten-5" href="#repoForm">Repo</a></li>
         </ul>
       </div>
-      <div id="personalForm" class="col s12">
-        <form class="col s12" action="perdeets" action="POST">
+      <div class="col s12">
+        <form id= "personalForm" class="col s12" action="http://127.0.0.1:1337/submitform" method="POST" onsubmit="return validation()">
       <div class="row">
         <div class="input-field col s12 top">
-          <input id="giturl" type="text" class="validate">
-          <label for="gitURL">Enter Github username <i class="mdi-action-info-outline info tooltipped" data-position="right" data-delay="50" data-tooltip="Enter Full user name eg: nathanbuckley"></i></label>
+          <input id="giturl" type="text">
+          <label for="giturl">Enter Github username <i class="mdi-action-info-outline info tooltipped" data-position="right" data-delay="50" data-tooltip="Enter Full user name eg: nathanbuckley"></i></label>
         </div>
       </div>
       <div class="row">
         <div class="input-field col s12">
-          <input id="apikey" type="text" class="validate">
+          <input id="apikey" type="text">
           <label for="apikey">OAuth Token <i class="mdi-action-info-outline info tooltipped" data-position="right" data-delay="50" data-tooltip="Learn how to generate token at: https://developer.github.com/v3/oauth/"></i></label>
         </div>
       </div>
       <div class="row submitbt">
-        <button class="btn waves-effect waves-light" type="submit" name="action">Load Dashboard
+        <button class="btn waves-effect waves-light" type="submit" >Load Dashboard
         <i class="mdi-action-dashboard right"></i>
     </button>
       </div>
