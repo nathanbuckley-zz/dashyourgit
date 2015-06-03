@@ -8,7 +8,7 @@ io = require('socket.io'),
 fs = require('fs'),
 path = require('path'),
 bodyParser = require('body-parser'),
-port = 1337;
+port = 1337; //change to whatever port you would like to use
 
 
 
@@ -19,10 +19,14 @@ app.use(bodyParser.json()); //support json encoded bodies
 app.use(express.static(__dirname + '/public'));
 
 
-// FORM ROUTES ---------------------------------------------
+// ROUTES ---------------------------------------------
 
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname + '/public/html/index.html'));
+});
+
+app.get('/personal', function (req, res) {
+  res.sendFile(path.join(__dirname + '/public/html/pubdash.html'));
 });
 
 app.post('/submitform', function (req, res) {
@@ -31,14 +35,15 @@ app.post('/submitform', function (req, res) {
   fs.writeFile('config.json', JSON.stringify(formData),function(err){
     if(err) throw err;
     console.log('config file saved');
-    res.send(formData);
+    res.redirect('/personal');
   });
 });
+
 
 
 // START THE SERVER ---------------------------------------------
 
 var server = app.listen(port, function(){
   var host = server.address();
-  console.log('listening on: ' + JSON.stringify(host));
+  console.log('Go to: http://localhost:' + port);
 });
