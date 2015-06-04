@@ -29,6 +29,14 @@ app.get('/personal', function (req, res) {
   res.sendFile(path.join(__dirname + '/public/html/pubdash.html'));
 });
 
+app.get('/org', function (req, res) {
+  res.sendFile(path.join(__dirname + '/public/html/orgdash.html'));
+});
+
+app.get('/repo', function (req, res) {
+  res.sendFile(path.join(__dirname + '/public/html/orgdash.html'));
+});
+
 app.post('/submitform', function (req, res) {
   var formData = req.body;
   console.log(formData);
