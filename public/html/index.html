@@ -26,7 +26,7 @@
         <form id= "personalForm" class="col s12" action="http://127.0.0.1:1337/submitform" method="POST" onsubmit="return validation()">
       <div class="row">
         <div class="input-field col s12 top">
-          <input id="giturl" name="giturl" type="text">
+          <input id="giturl" name="gitUrl" type="text">
           <label for="giturl">Enter Github username <i class="mdi-action-info-outline info tooltipped" data-position="right" data-delay="50" data-tooltip="Enter Full user name eg: nathanbuckley"></i></label>
         </div>
       </div>
@@ -47,13 +47,13 @@
         <form class="col s12" action="orgdeets" action="POST">
       <div class="row">
         <div class="input-field col s12 top">
-          <input id="orgUrl" type="text" class="validate">
+          <input id="orgUrl" name="orgUrl" type="text" class="validate">
           <label for="orgUrl">Git Hub Organisation URL<i class="mdi-action-info-outline info tooltipped" data-position="right" data-delay="50" data-tooltip="Enter Full Organisation URL eg: "></i></label>
         </div>
       </div>
       <div class="row">
         <div class="input-field col s12">
-          <input id="apikey" type="text" class="validate">
+          <input id="apikey" name="OauthToken" type="text" class="validate">
           <label for="apikey">OAuth Token <i class="mdi-action-info-outline info tooltipped" data-position="right" data-delay="50" data-tooltip="Learn how to generate token at: https://developer.github.com/v3/oauth/"></i></label>
         </div>
       </div>
@@ -68,13 +68,13 @@
         <form class="col s12" action="repodeets" action="POST">
       <div class="row">
         <div class="input-field col s12 top">
-          <input id="repourl" type="text" class="validate">
+          <input id="repourl" name="repoUrl" type="text" class="validate">
           <label for="repoURL">Git Hub Repo URL<i class="mdi-action-info-outline info tooltipped" data-position="right" data-delay="50" data-tooltip="Enter Full Repo URL eg: "></i></label>
         </div>
       </div>
       <div class="row">
         <div class="input-field col s12">
-          <input id="apikey" type="text" class="validate">
+          <input id="apikey" name="OauthToken" type="text" class="validate">
           <label for="apikey">OAuth Token <i class="mdi-action-info-outline info tooltipped" data-position="right" data-delay="50" data-tooltip="Learn how to generate token at: https://developer.github.com/v3/oauth/"></i></label>
         </div>
       </div>
