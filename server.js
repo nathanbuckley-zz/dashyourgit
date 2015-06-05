@@ -43,7 +43,17 @@ app.post('/submitform', function (req, res) {
   fs.writeFile('config.json', JSON.stringify(formData),function(err){
     if(err) throw err;
     console.log('config file saved');
-    res.redirect('/personal');
+    switch(formData){
+      case('gitUrl' in formData):
+        res.redirect('/personal');
+        break;
+      case('orgUrl' in formData):
+        res.redirect('/org');
+        break;
+      case('repoUrl' in formData):
+        res.redirect('/repo');
+        break;
+    }
   });
 });
 
