@@ -44,42 +44,42 @@
     </form>
       </div>
       <div id="orgForm" class="col s12">
-        <form class="col s12" action="orgdeets" action="POST">
+        <form class="col s12" action="http://127.0.0.1:1337/submitform" method="POST" onsubmit="return validation()">
       <div class="row">
         <div class="input-field col s12 top">
-          <input id="orgUrl" name="orgUrl" type="text" class="validate">
+          <input id="orgUrl" name="orgUrl" type="text">
           <label for="orgUrl">Git Hub Organisation URL<i class="mdi-action-info-outline info tooltipped" data-position="right" data-delay="50" data-tooltip="Enter Full Organisation URL eg: "></i></label>
         </div>
       </div>
       <div class="row">
         <div class="input-field col s12">
-          <input id="apikey" name="OauthToken" type="text" class="validate">
+          <input id="apikey" name="OauthToken" type="text">
           <label for="apikey">OAuth Token <i class="mdi-action-info-outline info tooltipped" data-position="right" data-delay="50" data-tooltip="Learn how to generate token at: https://developer.github.com/v3/oauth/"></i></label>
         </div>
       </div>
       <div class="row submitbt">
-        <button class="btn waves-effect waves-light" type="submit" name="action">Load Dashboard
+        <button class="btn waves-effect waves-light" type="submit">Load Dashboard
         <i class="mdi-action-dashboard right"></i>
         </button>
       </div>
     </form>
     </div>
       <div id="repoForm" class="col s12">
-        <form class="col s12" action="repodeets" action="POST">
+        <form class="col s12" action="http://127.0.0.1:1337/submitform" method="POST" onsubmit="return validation()">
       <div class="row">
         <div class="input-field col s12 top">
-          <input id="repourl" name="repoUrl" type="text" class="validate">
+          <input id="repourl" name="repoUrl" type="text">
           <label for="repoURL">Git Hub Repo URL<i class="mdi-action-info-outline info tooltipped" data-position="right" data-delay="50" data-tooltip="Enter Full Repo URL eg: "></i></label>
         </div>
       </div>
       <div class="row">
         <div class="input-field col s12">
-          <input id="apikey" name="OauthToken" type="text" class="validate">
+          <input id="apikey" name="OauthToken" type="text">
           <label for="apikey">OAuth Token <i class="mdi-action-info-outline info tooltipped" data-position="right" data-delay="50" data-tooltip="Learn how to generate token at: https://developer.github.com/v3/oauth/"></i></label>
         </div>
       </div>
       <div class="row submitbt">
-        <button class="btn waves-effect waves-light" type="submit" name="action">Load Dashboard
+        <button class="btn waves-effect waves-light" type="submit">Load Dashboard
         <i class="mdi-action-dashboard right"></i>
       </button>
       </div>
