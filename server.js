@@ -19,7 +19,7 @@ app.use(bodyParser.json()); //support json encoded bodies
 app.use(express.static(__dirname + '/public'));
 
 
-// ROUTES ---------------------------------------------
+//  DASHBOARD ROUTES ---------------------------------------------
 
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname + '/public/html/index.html'));
@@ -39,18 +39,20 @@ app.get('/repo', function (req, res) {
 
 app.post('/submitform', function (req, res) {
   var formData = req.body;
+  var key = Object.keys(formData)[0];
+  //console.log(key);
   console.log(formData);
   fs.writeFile('config.json', JSON.stringify(formData),function(err){
     if(err) throw err;
     console.log('config file saved');
-    switch(formData){
-      case('gitUrl' in formData):
+    switch(key){
+      case 'gitUrl':
         res.redirect('/personal');
         break;
-      case('orgUrl' in formData):
+      case 'orgUrl':
         res.redirect('/org');
         break;
-      case('repoUrl' in formData):
+      case 'repoUrl':
         res.redirect('/repo');
         break;
     }
