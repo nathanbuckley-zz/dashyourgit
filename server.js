@@ -4,7 +4,8 @@ Express server for backend of dashboard
 
 var express = require('express'),
 app = express(),
-io = require('socket.io'),
+server = require('http').Server(app),
+io = require('socket.io')(server),
 fs = require('fs'),
 path = require('path'),
 bodyParser = require('body-parser'),
@@ -59,11 +60,15 @@ app.post('/submitform', function (req, res) {
   });
 });
 
+//SOCKET IO STUFFS --------------------------------------------
 
+io.on('connection', function(socket){
+  console.log('a user accessed login page');
+});
 
 // START THE SERVER ---------------------------------------------
 
-var server = app.listen(port, function(){
+server.listen(port, function(){
   var host = server.address();
   console.log('Go to: http://localhost:' + port);
 });
