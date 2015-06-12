@@ -21,6 +21,7 @@ function validation() {
     return false;
   }
   else {
+    console.log('Personal Dashboard Accessed');
     return true;
   }
 }
@@ -34,6 +35,7 @@ function validationOrg() {
     return false;
   }
   else {
+    console.log('Organisation Dashboard Accessed');
     return true;
   }
 }
@@ -46,6 +48,13 @@ function validationRepo() {
     return false;
   }
   else {
+    console.log('Repo Dashboard Accessed');
     return true;
   }
 }
+
+//-----------------------------------------------------------
+
+//Socket IO
+
+  var socket = io();
