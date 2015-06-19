@@ -9,6 +9,7 @@ io = require('socket.io')(server),
 fs = require('fs'),
 path = require('path'),
 bodyParser = require('body-parser'),
+collection = require('./DataCollection/collection'),
 port = 1337; //change to whatever port you would like to use
 
 
@@ -28,6 +29,12 @@ app.get('/', function (req, res) {
 
 app.get('/personal', function (req, res) {
   res.sendFile(path.join(__dirname + '/public/html/pubdash.html'));
+  var config = JSON.parse(fs.readFileSync(config.json));
+  var userApiUrl = 'https://api.github.com/users/' + config.giturl;
+  fs.writeFile('userinfo.json',collection.collect(userApiUrl),function(err){
+    if (err) throw err;
+    console.log('user Information Saved');
+  });
 });
 
 app.get('/org', function (req, res) {
