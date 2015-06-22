@@ -29,8 +29,7 @@ app.get('/', function (req, res) {
 
 app.get('/personal', function (req, res) {
   res.sendFile(path.join(__dirname + '/public/html/pubdash.html'));
-  var config = JSON.parse(fs.readFileSync(config.json));
-  var userApiUrl = 'https://api.github.com/users/' + config.giturl;
+  var userApiUrl = 'https://api.github.com/users/' + JSON.parse(fs.readFileSync('config.json'));
   fs.writeFile('userinfo.json',collection.collect(userApiUrl),function(err){
     if (err) throw err;
     console.log('user Information Saved');
