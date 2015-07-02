@@ -57,4 +57,4 @@ function validationRepo() {
 
 //Socket IO
 
-  var socket = io();
+  //var socket = io();
