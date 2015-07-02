@@ -1,13 +1,15 @@
-var http = require('http');
+var https = require('https');
 
 var collect = function(url){
   var r = '';
-  http.get(url, function(res){
+  https.get(url, function(res){
     res.on('data',function(data){
-      r += data;
+      r += data.toString('utf8');
+      //console.log(r);
     });
     res.on('end', function(){
       return r;
+      console.log(JSON.stringify(r));
     });
   });
 }
