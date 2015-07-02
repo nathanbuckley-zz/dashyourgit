@@ -29,10 +29,19 @@ app.get('/', function (req, res) {
 
 app.get('/personal', function (req, res) {
   res.sendFile(path.join(__dirname + '/public/html/pubdash.html'));
-  var userApiUrl = 'https://api.github.com/users/' + JSON.parse(fs.readFileSync('config.json'));
-  fs.writeFile('userinfo.json',collection.collect(userApiUrl),function(err){
+  var conf = JSON.parse(fs.readFileSync('config.json'));
+  var userApi = {
+      hostname: 'api.github.com',
+      path: 'users/' + conf.gitUrl,
+      headers: {
+        'User-Agent': 'DashYourGit'
+      }
+    }
+  var me = JSON.stringify(collection.collect(userApi))
+  fs.writeFile('userinfo.json', me, function(err){
     if (err) throw err;
     console.log('user Information Saved');
+    console.log(me);
   });
 });
 
