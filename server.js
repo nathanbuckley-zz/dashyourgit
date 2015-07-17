@@ -9,6 +9,7 @@ io = require('socket.io')(server),
 fs = require('fs'),
 path = require('path'),
 bodyParser = require('body-parser'),
+logger = require('morgan'),
 collection = require('./DataCollection/collection'),
 port = 1337; //change to whatever port you would like to use
 
@@ -16,6 +17,7 @@ port = 1337; //change to whatever port you would like to use
 
 //config ---------------------------------------------------
 
+app.use(logger('dev'));
 app.use(bodyParser.urlencoded({ extended: true })); //support encoded bodies (x-www-form-urlencoded)
 app.use(bodyParser.json()); //support json encoded bodies
 app.use(express.static(__dirname + '/public'));
@@ -29,16 +31,26 @@ app.get('/', function (req, res) {
 
 app.get('/personal', function (req, res) {
   res.sendFile(path.join(__dirname + '/public/html/pubdash.html'));
-  var conf = JSON.parse(fs.readFileSync('config.json'));
-  var userApi = {
+    var conf = JSON.parse(fs.readFileSync('config.json'));
+    var userDeetsObj = {
       hostname: 'api.github.com',
       path: 'users/' + conf.gitUrl,
       headers: {
         'User-Agent': 'DashYourGit'
       }
     }
-  var me = JSON.stringify(collection.collect(userApi))
-  fs.writeFile('userinfo.json', me, function(err){
+    var r = '';
+    https.get(userDeetsObj, function(res){
+      res.on('data',function(data){
+        r += data.toString('utf8');
+        //console.log(r);
+      });
+      res.on('end', function(){
+        return r;
+        console.log(JSON.stringify(r));
+      });
+    });
+    fs.writeFile('userinfo.json', r, function(err){
     if (err) throw err;
     console.log('user Information Saved');
     console.log(me);
