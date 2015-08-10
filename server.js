@@ -9,6 +9,7 @@ io = require('socket.io')(server),
 fs = require('fs'),
 path = require('path'),
 bodyParser = require('body-parser'),
+https = require('https'),
 logger = require('morgan'),
 collection = require('./DataCollection/collection'),
 port = 1337; //change to whatever port you would like to use
@@ -22,6 +23,8 @@ app.use(bodyParser.urlencoded({ extended: true })); //support encoded bodies (x-
 app.use(bodyParser.json()); //support json encoded bodies
 app.use(express.static(__dirname + '/public'));
 
+// OWN MIDDLEWARE ----------------------------------------------
+
 
 //  DASHBOARD ROUTES ---------------------------------------------
 
@@ -30,30 +33,9 @@ app.get('/', function (req, res) {
 });
 
 app.get('/personal', function (req, res) {
-  res.sendFile(path.join(__dirname + '/public/html/pubdash.html'));
     var conf = JSON.parse(fs.readFileSync('config.json'));
-    var userDeetsObj = {
-      hostname: 'api.github.com',
-      path: 'users/' + conf.gitUrl,
-      headers: {
-        'User-Agent': 'DashYourGit'
-      }
-    }
-    var r = '';
-    https.get(userDeetsObj, function(res){
-      res.on('data',function(data){
-        r += data.toString('utf8');
-        //console.log(r);
-      });
-      res.on('end', function(){
-        return r;
-        console.log(JSON.stringify(r));
-      });
-    });
-    fs.writeFile('userinfo.json', r, function(err){
-    if (err) throw err;
-    console.log('user Information Saved');
-    console.log(me);
+    //neeed to call userInf & watch for userinfo.json file changes here
+    res.sendFile(path.join(__dirname + '/public/html/pubdash.html'));
   });
 });
 
